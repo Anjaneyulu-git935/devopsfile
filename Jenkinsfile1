@@ -4,7 +4,7 @@ node
     def mavenHome=tool name: "maven 3.6.3"
 stage('CheckoutCode')
 {
-git branch: 'development', credentialsId: '8f6378fe-dd51-43f6-b16f-6349e7317abc', url: 'https://github.com/Anjaneyulu-git935/devopsfile.git'
+git branch: 'development', credentialsId: '8f6378fe-dd51-43f6-b16f-6349e7317abc', url: 'https://github.com/mss-ecommerce-applications1/maven-web-application.git'
 }
 stage('Build')
 {
