@@ -1,6 +1,6 @@
 node
 {
-   // echo "Build number is: ${env.BUILD_NUMBER}"
+    echo "Build number is: ${env.BUILD_NUMBER}"
     def mavenHome=tool name: "maven 3.6.3"
 stage('CheckoutCode')
 {
@@ -10,7 +10,7 @@ stage('Build')
 {
 sh "${mavenHome}/bin/mvn clean package"
 }
-/*
+
 stage('ExcuteSonarQubeReport')
 {
 sh "${mavenHome}/bin/mvn sonar:sonar"
@@ -26,7 +26,7 @@ stage('DeployAppIntoTomcatserver')
         sh "scp -o  StrictHostKeyChecking=no target/maven-web-application.war ec2-user@52.66.179.95:/opt/apache-tomcat-9.0.38/webapps/"
     }
 }
-*/
+
 stage('Email notification')
 {
     mail bcc: 'polepallip@gmail.com', body: 'Build is over...', cc: 'anjieshwar444@gmail.com', from: '', replyTo: '', subject: 'Build is over..', to: 'anuroop.rv@gmail.com,areddy121314@gmail.com'
